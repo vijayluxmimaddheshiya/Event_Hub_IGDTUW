@@ -1,4 +1,5 @@
 
+/*
 import { authMiddleware } from "@clerk/nextjs";
  
 export default authMiddleware({
@@ -19,4 +20,22 @@ export default authMiddleware({
 export const config = {
   matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
 };
+*/
+
+import { authMiddleware } from "@clerk/nextjs";
+
+export default authMiddleware({
+  publicRoutes: [
+    '/',
+    '/events/:id',
+    '/api/webhooks/clerk',
+    '/api/webhook/stripe',
+    '/api/uploadthing'
+  ]
+});
+
+export const config = {
+  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
+};
+
  
