@@ -8,10 +8,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default async function Home({ searchParams }: SearchParamProps) {
-  const page = Number(searchParams?.page) || 1;
-  const searchText = (searchParams?.query as string) || '';
-  const category = (searchParams?.category as string) || '';
 
+  const search = await searchParams;
+  const page = Number(search?.page || 1);
+  const searchText = (search?.query as string) || '';
+  const category = (search?.category as string) || '';
+  
   const events = await getAllEvents({
     // query: searchText,
     query: '',

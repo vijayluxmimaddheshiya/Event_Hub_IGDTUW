@@ -41,8 +41,16 @@ export const DeleteConfirmation = ({ eventId }: { eventId: string }) => {
 
           <AlertDialogAction
             onClick={() =>
-              startTransition(async () => {
-                await deleteEvent({ eventId, path: pathname })
+              startTransition(() => {
+                deleteEvent({ eventId, path: pathname })
+                  .then(() => {
+                    // Handle successful deletion (if needed)
+                    console.log("Event deleted successfully");
+                  })
+                  .catch((error) => {
+                    // Handle any errors that occur during deletion
+                    console.error("Error deleting event:", error);
+                  });
               })
             }>
             {isPending ? 'Deleting...' : 'Delete'}
