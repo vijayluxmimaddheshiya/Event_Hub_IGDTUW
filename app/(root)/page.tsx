@@ -7,6 +7,10 @@ import { SearchParamProps } from '@/types';
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { ChatBox } from '@/components/shared/chat-box';
+
+
+
 export default async function Home({ searchParams }: SearchParamProps) {
 
   const search = await searchParams;
@@ -47,6 +51,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
           />
         </div>
       </section> 
+      
 
       <section id="events" className="wrapper my-8 flex flex-col gap-8 md:gap-12">
         <h2 className="h2-bold">Trust by <br /> Thousands of Events</h2>
@@ -66,7 +71,14 @@ export default async function Home({ searchParams }: SearchParamProps) {
           // totalPages={events?.totalPages}
           totalPages = {2}
         />
-      </section>
+      
+      //</section><div className="fixed bottom-5 right-5">
+         {/* Add the ChatBox Component */}
+    <div className="fixed bottom-5 right-5 z-50">
+      <ChatBox />
+    </div>
+      </div>
+
     </>
   )
 }
