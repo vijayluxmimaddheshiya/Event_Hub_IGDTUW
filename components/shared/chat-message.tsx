@@ -6,7 +6,7 @@ export type Message = {
   export const initialMessages: Message[] = [
     {
       who: "bot",
-      message: "Hi! I'm a friendly AI assistant. Ask me anything!",
+      message: "Hi! I'm a Eva, your AI assistant. Ask me anything!",
     },
   ];
   
@@ -22,8 +22,8 @@ export type Message = {
   
     return (
       <div className={`prompt ${who !== "bot" ? "right" : "left"}`}>
-        <div>
-          <p className="name">{who !== "bot" ? "You" : "AI"}</p>
+        <div className="flex gap-5">
+          <p className="name">{who !== "bot" ? "You" : "Eva"}</p>
           <p className="msg">{message}</p>
         </div>
       </div>

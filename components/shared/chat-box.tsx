@@ -142,7 +142,7 @@ const COOKIE_NAME = "next-openai-chatgpt";
 
 // PreLoader Component
 const PreLoader = () => (
-  <div className="prompt left">
+  <div className="prompt left flex">
     <p className="name">AI</p>
     <div className="loader">
       <div></div>
@@ -161,9 +161,15 @@ type InputMessageProps = {
 };
 
 const InputMessage = ({ input, setInput, sendMessage }: InputMessageProps) => (
-  <div className="question">
+  <div className="question flex gap-2 p-3">
     <input
       type="text"
+      style={{
+        paddingLeft: "10px", 
+        paddingTop: "5px",  
+        paddingBottom: "5px", 
+        paddingRight: "10px",
+      }}
       aria-label="chat input"
       required
       value={input}
@@ -176,8 +182,10 @@ const InputMessage = ({ input, setInput, sendMessage }: InputMessageProps) => (
       }}
       onChange={(e) => setInput(e.target.value)}
     />
+
     <button
       type="submit"
+      style={{ backgroundColor: "#db2777", color: "white", padding: "10px 20px", borderRadius: "5px"}}
       onClick={() => {
         if (input.trim() !== "") {
           sendMessage(input);
@@ -254,23 +262,23 @@ export function ChatBox() {
     <div>
       {/* Toggle Button */}
       <button
-        className="fixed bottom-5 right-5 z-50 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600"
+        className="fixed bottom-5 right-5 z-50 bg-pink-600 text-white p-3 rounded-full shadow-lg hover:bg-pink-900"
         onClick={() => setIsVisible(!isVisible)}
       >
-        {isVisible ? "✖ Close Chat" : "💬 Chat"}
+        {isVisible ? "✖ Close Chat" : "💬 Chat with Eva!"}
       </button>
 
       {/* Chatbox UI */}
       {isVisible && (
         <div className="fixed bottom-20 right-5 z-50 bg-white w-80 h-96 rounded-lg shadow-lg flex flex-col">
           {/* Chatbox Header */}
-          <div className="bg-blue-500 text-white p-2 flex justify-between items-center">
+          <div className="bg-pink-600 text-white p-2 flex justify-between items-center">
             <span className="font-bold">Chat</span>
             <button
               onClick={() => setIsVisible(false)}
               className="text-white hover:text-gray-200"
             >
-              ✖
+              ✖ 
             </button>
           </div>
 
