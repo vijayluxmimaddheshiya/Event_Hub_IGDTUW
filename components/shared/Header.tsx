@@ -14,7 +14,7 @@ const Header = () => {
       <Link href="/" className="w-36">
           <Image 
             src="/assets/images/logo.svg" width={128} height={38}
-            alt="Evently logo" 
+            alt="PinkWings logo" 
           />
         </Link>
         <SignedIn>
@@ -35,9 +35,6 @@ const Header = () => {
             </Button>
           </SignedOut>
         </div>
-
-         
-     
       </div>
       </header>
   )
